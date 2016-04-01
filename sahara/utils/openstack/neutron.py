@@ -64,6 +64,7 @@ class NeutronClient(object):
         if auth is None:
             auth = keystone.token_auth(token=token, project_name=tenant_name)
         self.neutron = neutron_cli.Client('2.0', session=session, auth=auth,
+                                          endpoint_type=CONF.neutron.endpoint_type,
                                           region_name=CONF.os_region_name)
         self.network = network
 
